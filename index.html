@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development: Shaping the Future</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav>
+    <div class="container">
+      <h1><a href="#">devJam</a></h1>
+      <ul>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#opportunities">Opportunities</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h2>Web Development: <br> Shaping the Future</h2>
+      <p>Craft innovative digital experiences. Build the web, transform the world.</p>
+      <a href="#opportunities" class="btn">Explore Opportunities</a>
+    </div>
+  </header>
+
+  <section id="impact">
+    <div class="container">
+      <h2>The Impact of Web Development</h2>
+      <p>From e-commerce giants to startups, web development fuels online success. It empowers businesses, connects
+        people, and drives innovation.</p>
+      <div class="impact-grid">
+        <div>
+          <img src="icon1.svg" alt="Business Growth Icon">
+          <h3>Business Growth</h3>
+          <p>Websites drive sales, increase brand visibility, and help you reach a global audience.</p>
+        </div>
+        <div>
+          <img src="icon2.svg" alt="Communication Icon">
+          <h3>Enhanced Communication</h3>
+          <p>Web applications connect people instantly, fostering collaboration and breaking down geographical barriers.
+          </p>
+        </div>
+        <div>
+          <img src="icon3.svg" alt="Innovation Icon">
+          <h3>Innovation Driver</h3>
+          <p>Web technologies are constantly evolving, creating new possibilities and pushing the boundaries of what's
+            achievable online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opportunities" class="bg-light">
+    <div class="container">
+      <h2>Opportunities in Web Development</h2>
+      <p>The demand for skilled web developers is higher than ever. Launch your career in a dynamic and rewarding field.
+      </p>
+      <ul class="opportunities-list">
+        <li>Front-end Development</li>
+        <li>Back-end Development</li>
+        <li>Full-stack Development</li>
+        <li>Web Design</li>
+        <li>UX/UI Design</li>
+      </ul>
+
+      <!-- Image Slider -->
+      <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <img src="coding-image1.png" alt="People Coding 1">
+          </div>
+          <div class="slide">
+            <img src="coding-image2.png" alt="People Coding 2">
+          </div>
+          <div class="slide">
+            <img src="coding-image3.png" alt="People Coding 3">
+          </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Ready to start your web development journey? Get in touch!</p>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 devJam Insights. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const impactItems = document.querySelectorAll('.impact-grid > div');
+
+    function checkInView() {
+      impactItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          item.classList.add('in-view');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkInView);
+    checkInView();
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelector('.slides');
+      const slideCount = document.querySelectorAll('.slide').length;
+      let index = 0;
+
+      function showSlide(n) {
+        if (n >= slideCount) {
+          index = 0;
+        } else if (n < 0) {
+          index = slideCount - 1;
+        } else {
+          index = n;
+        }
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      document.querySelector('.next').addEventListener('click', () => {
+        showSlide(index + 1);
+      });
+
+      document.querySelector('.prev').addEventListener('click', () => {
+        showSlide(index - 1);
+      });
+
+      // Optional: Auto-slide functionality
+      setInterval(() => {
+        showSlide(index + 1);
+      }, 5000); // Change slide every 5 seconds
+    });
+
+  </script>
+
+</body>
+
+</html>
